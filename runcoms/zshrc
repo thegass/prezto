@@ -10,4 +10,17 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export EDITOR=vim
+export VISUAL=vim
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    ssh-add ~/.ssh/id_rsa2015
+    ssh-add ~/.ssh/id_rsa
+    ssh-add ~/.ssh/id_ed25519
+    ssh-add ~/.ssh/id_dsa
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 # Customize to your needs...

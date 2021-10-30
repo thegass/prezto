@@ -39,7 +39,16 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'history-substring-search' \
-  'prompt'
+  'prompt'\
+  'tmux'\
+  'autosuggestions'\
+  'dpkg'\
+  'git'\
+  'python'\
+  'syntax-highlighting'\
+  'fzf'\
+  'ssh'
+
 
 #
 # Autosuggestions
@@ -160,7 +169,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Set the SSH identities to load into the agent.
-# zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa2015' 'id_rsa' 'id_ed25519' 'id_dsa'
 
 #
 # Syntax Highlighting
@@ -226,3 +235,15 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
+
+# Set height of the fzf results - default: full height
+zstyle ':prezto:module:fzf' height '30%'
+
+# Show file preview with ctrl+t and directory contents preview (needs tree) with alt-c
+zstyle ':prezto:module:fzf' preview 'yes'
+
+# Open fzf results in a tmux pane, if using tmux - default: no
+zstyle ':prezto:module:fzf' tmux 'yes'
+
+# Order output in reverse order - default: no
+zstyle ':prezto:module:fzf' reverse 'yes'
